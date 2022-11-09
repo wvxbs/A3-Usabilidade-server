@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "expresss": "^0.0.0",
+    "nodemon": "^2.0.20"
+  },
+  "name": "a3-usabilidade-server",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wvxbs/A3-Usabilidade-server.git"
+  },
+  "author": "wvxbs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wvxbs/A3-Usabilidade-server/issues"
+  },
+  "homepage": "https://github.com/wvxbs/A3-Usabilidade-server#readme"
+}
