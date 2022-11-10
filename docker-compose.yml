@@ -10,5 +10,17 @@ services:
       NODE_ENV: production
     ports:
       - 3001:3001
+    depends_on:
+      - db
+    links:
+      - db
     volumes:
-      - .:/api
+      - .:/app
+
+  db:
+    image: 'mongo'
+    container_name: mongodb
+    ports:
+      - '27017:27017'
+    volumes:
+      - ./data/db:/data/db

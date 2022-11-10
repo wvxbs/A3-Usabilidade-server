@@ -1,16 +1,29 @@
-const http = require('http');
-
-const hostname = '127.0.0.1';
-const port = 3001;
-
-const express = require('express')
+;const express = require('express');
+const mongoose  = require('mongoose');
 const app = express();
 const cors = require('cors')
+const dotenv = require('dotenv');
+
+const port = 3001
 
 app.use(cors())
+dotenv.config();
 
-require('./routes.js')(app)
+mongoose
+  .connect(process.env.MONGO_URL, {
+    useNewUrlParser: true
+  })
+  .then(result => {
+    console.log('MongoDB Connected');
+  })
+  .catch(error => {
+    console.log(error);
+  });
 
-app.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+app.get('/', (req, res) => {
+  res.send("Hello World!")
+})
+
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}/`);
 });

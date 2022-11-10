@@ -102,3 +102,10 @@ dist
 
 # TernJS port file
 .tern-port
+
+.vscode
+
+yarn.lock
+data/db/collection-0-5200963466017538674.wt
+
+/data
