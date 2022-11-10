@@ -6,8 +6,12 @@ const dotenv = require('dotenv');
 
 const port = process.env.PORT
 
+const Persons = require('./routes/Persons')
+
 app.use(cors())
 dotenv.config();
+
+app.use('/api/person', Persons)
 
 mongoose
   .connect(process.env.MONGO_URL, {

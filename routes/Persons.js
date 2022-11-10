@@ -3,7 +3,7 @@ const router = express.Router();
 
 const Person = require('../model/Person');
 
-router.post('/novo', (req, res) => {
+router.post('/new', (req, res) => {
   const newPerson = new Person({
     marca: req.body.name,
     modelo: req.body.email,
