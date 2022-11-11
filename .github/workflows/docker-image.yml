@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: docker login
-      with:
+      env:
         REACT_APP_BASE_PATH: ${{secrets.REACT_APP_BASE_PATH}}
         DOCKER_USER: ${{secrets.DOCKER_USER}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
