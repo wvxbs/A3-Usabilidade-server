@@ -6,11 +6,19 @@ const personSchema = new Schema({
     type: String,
     required: true
   },
-  email: {
+  age: {
     type: String,
     require: true
   },
-  password: {
+  summary: {
+    type: String,
+    required: true
+  },
+  link: {
+    type: String,
+    required: true
+  },
+  img: {
     type: String,
     required: true
   }
