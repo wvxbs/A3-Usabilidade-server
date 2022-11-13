@@ -1,20 +1,24 @@
-;const express = require('express');
+const express = require('express');
+const bodyParser = require('body-parser');  
 const mongoose  = require('mongoose');
 const app = express();
 const cors = require('cors')
 const dotenv = require('dotenv');
 
 const port = process.env.PORT
+const url = process.env.MONGO_URL
 
 const Persons = require('./routes/Persons')
 
-app.use(cors())
 dotenv.config();
+
+app.use(cors())
+app.use(bodyParser.json());
 
 app.use('/api/person', Persons)
 
 mongoose
-  .connect(process.env.MONGO_URL, {
+  .connect(url, {
     useNewUrlParser: true
   })
   .then(result => {
@@ -23,10 +27,6 @@ mongoose
   .catch(error => {
     console.log(error);
   });
-
-app.get('/', (req, res) => {
-  res.send("Hello World!")
-})
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}/`);
