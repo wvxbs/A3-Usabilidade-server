@@ -1,30 +1,35 @@
-const express = require('express');
-const bodyParser = require('body-parser');  
-const mongoose  = require('mongoose');
-const app = express();
-const cors = require('cors')
-const dotenv = require('dotenv');
+const express = require('express')
+const bodyParser = require('body-parser')  
+const mongoose  = require('mongoose')
+const app = express()
+const dotenv = require('dotenv')
 
 const Persons = require('./routes/Persons')
-
-dotenv.config();
-
-app.use(cors())
-app.use(bodyParser.json());
-
-app.use('/api/person', Persons)
 
 mongoose
   .connect(process.env.MONGO_URL, {
     useNewUrlParser: true
   })
   .then(result => {
-    console.log('MongoDB Connected');
+    console.log('MongoDB Connected')
   })
   .catch(error => {
-    console.log(error);
-  });
+    console.log(error)
+  })
 
-app.listen(process.env.PORT, () => {
-  console.log(`Server running at http://localhost:${process.env.PORT}/`);
-});
+dotenv.config()
+
+app.use(bodyParser.json())
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE")
+  res.header("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept")
+  next()
+})
+
+app.use('/person', Persons)
+
+app.listen(process.env.API_PORT, () => {
+  console.log(`Server running at http://localhost:${process.env.API_PORT}/`)
+})

@@ -3,13 +3,13 @@ const router = express.Router()
 
 const Person = require('../model/Person')
 
-router.post('/new', (req, res) => {
+router.post('/', (req, res) => {
   const newPerson = new Person({  
-    name: req.body.name,
-    age: req.body.age,
-    summary: req.body.summary,
-    link: req.body.link,
-    img: req.body.img
+    "name": req.body.name,
+    "age": req.body.age,
+    "summary": req.body.summary,
+    "link": req.body.link,
+    "img": req.body.img
   })
 
   newPerson
@@ -29,6 +29,15 @@ router.get('/', (req, res) => {
     })
     .catch(error => res.status(500).json(error));
 });
+
+router.delete('/:id', (req, res) => {
+  Person.findOneAndDelete({ _id: req.params.id })
+    .then(person => {
+      res.json(person);
+    })
+    .catch(error => res.status(500).json(error));
+});
+
 
 
 module.exports = router
