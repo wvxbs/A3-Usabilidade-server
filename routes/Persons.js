@@ -25,19 +25,18 @@ router.post('/', (req, res) => {
 router.get('/', (req, res) => {
   Person.find()
     .then(persons => {
-      res.json(persons);
+      res.json(persons)
     })
-    .catch(error => res.status(500).json(error));
-});
+    .catch(error => res.status(500).json(error))
+})
 
-router.delete('/:id', (req, res) => {
-  Person.findOneAndDelete({ _id: req.params.id })
-    .then(person => {
-      res.json(person);
+router.delete('delete/:id', (req, res) => {
+  Person.findOneAndDelete({_id: req.params.id})
+    .then(persons => {
+      res.json(persons)
     })
-    .catch(error => res.status(500).json(error));
-});
-
+    .catch(error => res.status(500).json(error))
+})
 
 
 module.exports = router
