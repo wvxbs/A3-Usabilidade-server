@@ -18,9 +18,10 @@ const personSchema = new Schema({
     type: String,
     required: true
   },
-  img: {
-    type: Buffer,
-    required: true
+  data: Buffer,
+  contentType: {
+      type: String,
+      default: 'image/png'
   }
 })
 
