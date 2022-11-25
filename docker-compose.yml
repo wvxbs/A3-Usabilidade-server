@@ -1,7 +1,7 @@
 version: '3.4'
 
 services:
-  api:
+  server:
     image: wvxbs/a3-usabilidade-server
     build:
       context: .
@@ -13,13 +13,13 @@ services:
     ports: 
      - ${API_PORT}:${API_PORT}
     depends_on:
-      - db
+      - database
     links:
-      - db
+      - database
     volumes:
       - .:/app
 
-  db:
+  database:
     image: 'mongo'
     container_name: mongodb
     ports:

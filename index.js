@@ -19,8 +19,6 @@ mongoose
 
 dotenv.config()
 
-app.use(cors())
-
 app.use(bodyParser.json())
 
 // app.use(function(req, res, next) {
