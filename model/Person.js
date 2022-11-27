@@ -18,11 +18,10 @@ const personSchema = new Schema({
     type: String,
     required: true
   },
-  data: Buffer,
-  contentType: {
-      type: String,
-      default: 'image/png'
-  }
+  img: {
+    type: Buffer,
+    required: true
+  },
 })
 
 module.exports = mongoose.model('Person', personSchema)
