@@ -17,11 +17,7 @@ const personSchema = new Schema({
   link: {
     type: String,
     required: true
-  },
-  img: {
-    data: Buffer,
-    required: true
-  },
+  }
 })
 
 module.exports = mongoose.model('Person', personSchema)

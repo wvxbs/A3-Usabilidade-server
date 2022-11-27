@@ -8,8 +8,7 @@ router.post('/', (req, res) => {
     "name": req.body.name,
     "age": req.body.age,
     "summary": req.body.summary,
-    "link": req.body.link,
-    "img": req.body.img
+    "link": req.body.link
   })
 
   newPerson
