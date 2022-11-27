@@ -19,7 +19,7 @@ const personSchema = new Schema({
     required: true
   },
   img: {
-    type: Buffer,
+    data: Buffer,
     required: true
   },
 })
