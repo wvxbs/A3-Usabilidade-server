@@ -30,18 +30,11 @@ router.get('/', (req, res) => {
 })
 
 router.delete('/:id', (req, res) => {
-  Person.findOneAndDelete({_id: req.params.id}, function(error, person) {
-      if (!error && person) {
-          console.log(person);
-          console.log("person successfully deleted")
-      }
-      else {
-          console.log("error")
-      }
-      res.redirect("/");
+  Person.findOneAndDelete({ _id: req.params.id })
+    .then(Person => {
+      res.json(Person);
     })
-    .catch(error => res.status(500).json(error))
-})
-
+    .catch(error => res.status(500).json(error));
+});
 
 module.exports = router
