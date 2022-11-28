@@ -7,7 +7,7 @@ const personSchema = new Schema({
     required: true
   },
   age: {
-    type: String,
+    type: Number,
     required: true
   },
   summary : {
