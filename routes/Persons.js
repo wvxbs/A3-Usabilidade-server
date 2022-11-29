@@ -31,8 +31,9 @@ router.get('/', (req, res) => {
 
 router.delete('/delete/:id', (req, res) => {
   Person.findOneAndDelete({ _id: req.params.id })
-    .then(persons => {
-      res.send("Pessoa excluída com sucesso!")
+    .then(() => {
+      res.send("Pessoa deletada com sucesso")
+    })
     .catch(error => res.status(500).json(error))
 })
 
