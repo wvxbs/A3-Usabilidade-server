@@ -11,8 +11,7 @@ router.post('/', (req, res) => {
     "link": req.body.link
   })
 
-  newPerson
-    .save()
+  newPerson.save()
     .then(result => {
       res.status(200).json(result)
     })
