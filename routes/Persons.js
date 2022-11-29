@@ -29,7 +29,7 @@ router.get('/', (req, res) => {
     .catch(error => res.status(500).json(error))
 })
 
-router.delete('/delete/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
   Person.findOneAndDelete({ _id: req.params.id }).then(() => {
       console.log(result);
       res.status(200).json({message: 'Pessoa deletada'});
