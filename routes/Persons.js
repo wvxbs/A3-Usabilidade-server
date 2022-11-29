@@ -29,7 +29,7 @@ router.get('/', (req, res) => {
     .catch(error => res.status(500).json(error))
 })
 
-router.delete('/', (req, res) => {
+router.delete('/delete', (req, res) => {
   Person.findOneAndDelete({ _id: req.body.data._id})
     .then(Person => {
       res.json(Person);
