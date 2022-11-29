@@ -30,11 +30,11 @@ router.get('/', (req, res) => {
 })
 
 rrouter.delete('/delete', (req, res) => {
-  Carro.findOneAndDelete({ _id: req.body._id })
-    .then(carro => {
-      res.json(carro);
+  Person.findOneAndDelete({ _id: req.body._id })
+    .then(persons => {
+      res.json(persons)
     })
-    .catch(error => res.status(500).json(error));
-});
+    .catch(error => res.status(500).json(error))
+})
 
 module.exports = router
