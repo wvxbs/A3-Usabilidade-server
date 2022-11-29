@@ -14,7 +14,7 @@ router.post('/', (req, res) => {
   newPerson
     .save()
     .then(result => {
-      res.json(result)
+      res.status(200).json(result)
     })
     .catch(error => {
       res.status(500).json(error)
@@ -24,15 +24,15 @@ router.post('/', (req, res) => {
 router.get('/', (req, res) => {
   Person.find()
     .then(persons => {
-      res.json(persons)
+      res.status(200).json(persons)
     })
     .catch(error => res.status(500).json(error))
 })
 
 router.delete('/delete/:id', (req, res) => {
   Person.findOneAndDelete({ _id: req.params.id })
-    .then(() => {
-      res.send("Pessoa deletada com sucesso")
+      console.log(result);
+      res.status(200).json({message: 'Pessoa deletada'});
     })
     .catch(error => res.status(500).json(error))
 })
