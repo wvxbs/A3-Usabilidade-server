@@ -29,11 +29,10 @@ router.get('/', (req, res) => {
     .catch(error => res.status(500).json(error))
 })
 
-router.delete('/delete', (req, res) => {
-  Person.findOneAndDelete({ _id: req.body._id })
+router.delete('/delete/:id', (req, res) => {
+  Person.findOneAndDelete({ _id: req.params.id })
     .then(persons => {
-      res.json(persons)
-    })
+      res.send("Pessoa excluída com sucesso!")
     .catch(error => res.status(500).json(error))
 })
 
