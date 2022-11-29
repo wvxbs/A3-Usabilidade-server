@@ -30,7 +30,7 @@ router.get('/', (req, res) => {
 })
 
 router.delete('/delete/:id', (req, res) => {
-  Person.findOneAndDelete({ _id: req.params.id })
+  Person.findOneAndDelete({ _id: req.params.id }).then(() => {
       console.log(result);
       res.status(200).json({message: 'Pessoa deletada'});
     })
