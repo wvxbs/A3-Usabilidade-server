@@ -6,8 +6,7 @@ const dotenv = require('dotenv')
 
 const Persons = require('./routes/Persons')
 
-mongoose
-  .connect(process.env.MONGO_URL, {
+mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true
   })
   .then(result => {
